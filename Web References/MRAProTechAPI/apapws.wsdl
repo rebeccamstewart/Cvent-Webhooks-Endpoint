@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="UpdateUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="szUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szRegType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szSpouseRegFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szFirstTimeFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szVolunteerFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szHeardAboutEvent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szExcludeEmailFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szAttendLuncheonFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szNumTicketsPurchased" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szSponsorAwardTableFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szPaymentMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szRegID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szJobTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="szPerID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="szRegDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoHttpGetIn">
+    <wsdl:part name="szUserID" type="s:string" />
+    <wsdl:part name="szRegType" type="s:string" />
+    <wsdl:part name="szSpouseRegFlag" type="s:string" />
+    <wsdl:part name="szFirstTimeFlag" type="s:string" />
+    <wsdl:part name="szVolunteerFlag" type="s:string" />
+    <wsdl:part name="szHeardAboutEvent" type="s:string" />
+    <wsdl:part name="szExcludeEmailFlag" type="s:string" />
+    <wsdl:part name="szAttendLuncheonFlag" type="s:string" />
+    <wsdl:part name="szNumTicketsPurchased" type="s:string" />
+    <wsdl:part name="szSponsorAwardTableFlag" type="s:string" />
+    <wsdl:part name="szPaymentMethod" type="s:string" />
+    <wsdl:part name="szRegID" type="s:string" />
+    <wsdl:part name="szJobTitle" type="s:string" />
+    <wsdl:part name="szPerID" type="s:string" />
+    <wsdl:part name="szRegDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoHttpPostIn">
+    <wsdl:part name="szUserID" type="s:string" />
+    <wsdl:part name="szRegType" type="s:string" />
+    <wsdl:part name="szSpouseRegFlag" type="s:string" />
+    <wsdl:part name="szFirstTimeFlag" type="s:string" />
+    <wsdl:part name="szVolunteerFlag" type="s:string" />
+    <wsdl:part name="szHeardAboutEvent" type="s:string" />
+    <wsdl:part name="szExcludeEmailFlag" type="s:string" />
+    <wsdl:part name="szAttendLuncheonFlag" type="s:string" />
+    <wsdl:part name="szNumTicketsPurchased" type="s:string" />
+    <wsdl:part name="szSponsorAwardTableFlag" type="s:string" />
+    <wsdl:part name="szPaymentMethod" type="s:string" />
+    <wsdl:part name="szRegID" type="s:string" />
+    <wsdl:part name="szJobTitle" type="s:string" />
+    <wsdl:part name="szPerID" type="s:string" />
+    <wsdl:part name="szRegDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="apapwsSoap">
+    <wsdl:operation name="UpdateUserInfo">
+      <wsdl:input message="tns:UpdateUserInfoSoapIn" />
+      <wsdl:output message="tns:UpdateUserInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="apapwsHttpGet">
+    <wsdl:operation name="UpdateUserInfo">
+      <wsdl:input message="tns:UpdateUserInfoHttpGetIn" />
+      <wsdl:output message="tns:UpdateUserInfoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="apapwsHttpPost">
+    <wsdl:operation name="UpdateUserInfo">
+      <wsdl:input message="tns:UpdateUserInfoHttpPostIn" />
+      <wsdl:output message="tns:UpdateUserInfoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="apapwsSoap" type="tns:apapwsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateUserInfo">
+      <soap:operation soapAction="http://tempuri.org/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="apapwsSoap12" type="tns:apapwsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="apapwsHttpGet" type="tns:apapwsHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="UpdateUserInfo">
+      <http:operation location="/UpdateUserInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="apapwsHttpPost" type="tns:apapwsHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="UpdateUserInfo">
+      <http:operation location="/UpdateUserInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="apapws">
+    <wsdl:port name="apapwsSoap" binding="tns:apapwsSoap">
+      <soap:address location="http://www.mra-services.com/_webservice/APAP_UpdateMember.asmx" />
+    </wsdl:port>
+    <wsdl:port name="apapwsSoap12" binding="tns:apapwsSoap12">
+      <soap12:address location="http://www.mra-services.com/_webservice/APAP_UpdateMember.asmx" />
+    </wsdl:port>
+    <wsdl:port name="apapwsHttpGet" binding="tns:apapwsHttpGet">
+      <http:address location="http://www.mra-services.com/_webservice/APAP_UpdateMember.asmx" />
+    </wsdl:port>
+    <wsdl:port name="apapwsHttpPost" binding="tns:apapwsHttpPost">
+      <http:address location="http://www.mra-services.com/_webservice/APAP_UpdateMember.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

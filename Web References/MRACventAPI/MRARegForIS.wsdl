@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetRegistrants">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EventId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APIEventPW" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegistrantsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegistrantsResult" type="tns:ArrayOfRegistrantList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRegistrantList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="registrantList" type="tns:registrantList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="registrantList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MRARegistrationIdParent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRARegConfirmation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizationId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegistrationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MRAModifiedDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="lastModifiedFinancialDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancellationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrationType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRegistrationDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EventId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APIEventPW" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MRARegistrationId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegistrationDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegistrationDetailsResult" type="tns:ArrayOfDetailedRegistrant" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDetailedRegistrant">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetailedRegistrant" nillable="true" type="tns:DetailedRegistrant" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetailedRegistrant">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MRARegistrationIdParent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRARegConfirmation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegistrationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancellationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrationItem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrationItemCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegistrationItemFee" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegistrationTotalFee" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizationId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Salutation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BadgeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Role" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobFunction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateProvince" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MobilePhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ethnicity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cancel_Substitute_Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UsingAPartnerCode" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="AffiliatedWith" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScholarshipSponsor" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FundedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LengthOfTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BirthYear" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssistantEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FacebookURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Twitter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Blog" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinkedIn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizationType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrgWorkInternationally" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizationWebsite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISIndividualInterestCategories" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SpecialNeedsYesNo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialNeedsText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FirstTimeAtConference" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GreatestInfluenceToRegister" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GreatestInfluenceText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeInRoster" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="OptOutPromoMaterial" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpeakingAt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InterestCategories" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="IS_InterestCategories" type="tns:ArrayOfString1" />
+          <s:element minOccurs="0" maxOccurs="1" name="DietaryNeeds" type="tns:ArrayOfString2" />
+          <s:element minOccurs="0" maxOccurs="1" name="Transactions" type="tns:ArrayOfTransaction" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrationCodes" type="tns:ArrayOfRegCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="OptionalItemRegistrations" type="tns:ArrayOfOptionalItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomQuestions" type="tns:ArrayOfCustomQuestion" />
+          <s:element minOccurs="0" maxOccurs="1" name="GuestRegistrations" type="tns:ArrayOfGuestRegistration" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="interestCategory" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IS_interestCategory" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DietaryNeed" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransaction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Transaction" nillable="true" type="tns:Transaction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Transaction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MRAId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionAmount" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRegCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RegCode" nillable="true" type="tns:RegCode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RegCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MRAId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiscountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegCodeValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiscountType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiscountAmount" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOptionalItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OptionalItem" nillable="true" type="tns:OptionalItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OptionalItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MRAId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OptinalItemRegDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OptionalItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OptionalFee" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="OptionalItemName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Action" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCustomQuestion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomQuestion" nillable="true" type="tns:CustomQuestion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomQuestion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MRAId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Answer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Answers" type="tns:ArrayOfString3" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGuestRegistration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GuestRegistration" nillable="true" type="tns:GuestRegistration" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GuestRegistration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GuestId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfirmationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrationType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ArrayOfRegistrantList" nillable="true" type="tns:ArrayOfRegistrantList" />
+      <s:element name="ArrayOfDetailedRegistrant" nillable="true" type="tns:ArrayOfDetailedRegistrant" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetRegistrantsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegistrants" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrantsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegistrantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegistrationDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegistrationDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrantsHttpGetIn">
+    <wsdl:part name="EventId" type="s:string" />
+    <wsdl:part name="APIEventPW" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrantsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRegistrantList" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationDetailsHttpGetIn">
+    <wsdl:part name="EventId" type="s:string" />
+    <wsdl:part name="APIEventPW" type="s:string" />
+    <wsdl:part name="MRARegistrationId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDetailedRegistrant" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrantsHttpPostIn">
+    <wsdl:part name="EventId" type="s:string" />
+    <wsdl:part name="APIEventPW" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrantsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRegistrantList" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationDetailsHttpPostIn">
+    <wsdl:part name="EventId" type="s:string" />
+    <wsdl:part name="APIEventPW" type="s:string" />
+    <wsdl:part name="MRARegistrationId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDetailedRegistrant" />
+  </wsdl:message>
+  <wsdl:portType name="MRARegForISSoap">
+    <wsdl:operation name="GetRegistrants">
+      <wsdl:input message="tns:GetRegistrantsSoapIn" />
+      <wsdl:output message="tns:GetRegistrantsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationDetails">
+      <wsdl:input message="tns:GetRegistrationDetailsSoapIn" />
+      <wsdl:output message="tns:GetRegistrationDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MRARegForISHttpGet">
+    <wsdl:operation name="GetRegistrants">
+      <wsdl:input message="tns:GetRegistrantsHttpGetIn" />
+      <wsdl:output message="tns:GetRegistrantsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationDetails">
+      <wsdl:input message="tns:GetRegistrationDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetRegistrationDetailsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MRARegForISHttpPost">
+    <wsdl:operation name="GetRegistrants">
+      <wsdl:input message="tns:GetRegistrantsHttpPostIn" />
+      <wsdl:output message="tns:GetRegistrantsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationDetails">
+      <wsdl:input message="tns:GetRegistrationDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetRegistrationDetailsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MRARegForISSoap" type="tns:MRARegForISSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRegistrants">
+      <soap:operation soapAction="http://tempuri.org/GetRegistrants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationDetails">
+      <soap:operation soapAction="http://tempuri.org/GetRegistrationDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MRARegForISSoap12" type="tns:MRARegForISSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRegistrants">
+      <soap12:operation soapAction="http://tempuri.org/GetRegistrants" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetRegistrationDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MRARegForISHttpGet" type="tns:MRARegForISHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetRegistrants">
+      <http:operation location="/GetRegistrants" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationDetails">
+      <http:operation location="/GetRegistrationDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MRARegForISHttpPost" type="tns:MRARegForISHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetRegistrants">
+      <http:operation location="/GetRegistrants" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationDetails">
+      <http:operation location="/GetRegistrationDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MRARegForIS">
+    <wsdl:port name="MRARegForISSoap" binding="tns:MRARegForISSoap">
+      <soap:address location="http://www.mra-services.com/_webservice/RegAPI/MRARegForIS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MRARegForISSoap12" binding="tns:MRARegForISSoap12">
+      <soap12:address location="http://www.mra-services.com/_webservice/RegAPI/MRARegForIS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MRARegForISHttpGet" binding="tns:MRARegForISHttpGet">
+      <http:address location="http://www.mra-services.com/_webservice/RegAPI/MRARegForIS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MRARegForISHttpPost" binding="tns:MRARegForISHttpPost">
+      <http:address location="http://www.mra-services.com/_webservice/RegAPI/MRARegForIS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
